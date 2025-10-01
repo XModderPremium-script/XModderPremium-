@@ -1,11 +1,182 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <title>XModderPremium</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Xmodder — Noir & vert fluo</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg:#000000;
+      --panel:#081015;
+      --glass: rgba(255,255,255,0.02);
+      --neon: #39FF14;
+      --muted: rgba(255,255,255,0.25);
+      --accent-shadow: 0 6px 30px rgba(57,255,20,0.06);
+      --radius: 18px;
+      --maxw: 420px;
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      background:
+        radial-gradient(800px 400px at 10% 10%, rgba(57,255,20,0.03), transparent 8%),
+        linear-gradient(180deg, #020202 0%, #030405 100%);
+      color:#e9fef0;
+      font-family: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      display:flex;
+      align-items:flex-start;
+      justify-content:center;
+      padding:36px 16px;
+    }
+
+    .wrap{
+      width:100%;
+      max-width:var(--maxw);
+    }
+
+    .hero{
+      text-align:left;
+      margin-bottom:22px;
+    }
+    .hero h1{
+      margin:0;
+      font-size:28px;
+      line-height:1.05;
+      letter-spacing:-0.5px;
+      font-weight:700;
+      color: white;
+    }
+    .hero p{
+      margin:8px 0 0 0;
+      color:var(--muted);
+      font-size:13px;
+    }
+
+    .card{
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border-radius: calc(var(--radius));
+      padding:22px;
+      box-shadow: 0 6px 30px rgba(0,0,0,0.6), 0 0 40px rgba(57,255,20,0.02) inset;
+      border: 1px solid rgba(57,255,20,0.06);
+      backdrop-filter: blur(6px);
+    }
+
+    .option{
+      padding:20px 14px;
+      border-radius:12px;
+      margin-bottom:14px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.00));
+      transition: transform .18s ease, box-shadow .18s ease;
+      cursor:default;
+    }
+    .option:hover{ transform: translateY(-4px); box-shadow: var(--accent-shadow); }
+
+    .option .title{ font-weight:600; color:white; font-size:16px; }
+    .option .desc{ margin-top:6px; color:var(--muted); font-size:13px; }
+
+    .status-grid{
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+      margin-top:6px;
+    }
+
+    .status{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding:14px 16px;
+      border-radius:12px;
+      background: rgba(0,0,0,0.6);
+      box-shadow: 0 6px 18px rgba(0,0,0,0.6);
+      border: 1px solid rgba(255,255,255,0.03);
+    }
+    .status .left{
+      display:flex;
+      align-items:center;
+      gap:12px;
+    }
+    .dot{
+      width:12px;
+      height:12px;
+      border-radius:50%;
+      background: var(--neon);
+      box-shadow: 0 0 10px var(--neon), 0 0 22px rgba(57,255,20,0.12);
+      position:relative;
+      transform: translateY(-1px);
+      animation: pulse 1.8s infinite;
+    }
+    @keyframes pulse{
+      0%{ transform: scale(0.95); opacity:0.95 }
+      50%{ transform: scale(1.12); opacity:1 }
+      100%{ transform: scale(0.95); opacity:0.95 }
+    }
+    .status .name{ color:var(--muted); font-size:13px; }
+    .status .value{ font-weight:700; color:white; font-size:16px; }
+
+    .players{
+      padding:14px 16px;
+      border-radius:12px;
+      margin-top:12px;
+      background: rgba(0,0,0,0.6);
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      border: 1px solid rgba(255,255,255,0.03);
+    }
+    .players .num{ font-weight:700; font-size:20px; color:white; }
+
+    .cta{
+      display:block;
+      margin:18px auto 8px;
+      max-width:260px;
+      text-align:center;
+      padding:12px 18px;
+      border-radius:12px;
+      font-weight:700;
+      color:#001403;
+      background: linear-gradient(180deg, var(--neon), #2cff2b);
+      box-shadow: 0 10px 30px rgba(57,255,20,0.22), 0 0 18px rgba(57,255,20,0.12);
+      border: none;
+      cursor:pointer;
+      font-size:15px;
+      text-decoration:none;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+    }
+    .cta:active{ transform: translateY(1px) }
+
+    .foot{
+      margin-top:10px;
+      font-size:12px;
+      color:var(--muted);
+      text-align:left;
+    }
+
+    @media(min-width:560px){
+      .hero h1{ font-size:34px }
+      .card{ padding:28px }
+    }
+
+  </style>
 </head>
 <body>
-  <h1>Bienvenue sur mon site GitHub Pages !</h1>
-  <p>Amu moa</p>
-</body>
-</html>
+  <div class="wrap">
+    <div class="hero">
+      <h1>Xmodder Script - <span style="color:var(--neon)">Steal A Brainrot</span></h1>
+      <p>Obtiens ta clé d'essai — aperçu rapide. Détails minimaux et blocs d'état ci-dessous.</p>
+    </div>
+
+    <div class="card" role="region" aria-label="Fonctionnalités et statut">
+      <div class="option" aria-hidden="false">
+        <div class="title">Invisible</div>
+        <div class="desc
